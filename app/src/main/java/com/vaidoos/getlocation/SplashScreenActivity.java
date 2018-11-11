@@ -20,18 +20,17 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         askPermission(this)
-                .request(Manifest.permission.CAMERA
-                        , Manifest.permission.READ_CONTACTS
-                        , Manifest.permission.WRITE_CONTACTS
-                        , Manifest.permission.ACCESS_FINE_LOCATION
+                .request(Manifest.permission.ACCESS_FINE_LOCATION
                         , Manifest.permission.ACCESS_COARSE_LOCATION)
                 .onAccepted((result) -> {
                     //all permissions already granted or just granted
 
                     Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-                    //launchActivity();
 
+                    //launchActivity();
                     startActivity(new Intent(this,MainActivity.class));
+
+                    finish();
 
                 })
                 .onDenied(result -> {
